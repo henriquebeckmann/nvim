@@ -48,4 +48,4 @@ vim.g.symbols_outline = {
 	},
 }
 
-vim.cmd("highlight FocusedSymbol guifg='None' guibg='#1e4173'")
+vim.cmd("highlight FocusedSymbol gui='bold'")
