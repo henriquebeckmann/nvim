@@ -118,7 +118,11 @@ local lsp_clients = {
 
 local location = {
     "location",
-    padding = { left = 0, right = 2 },
+    fmt = function()
+        local row, column = unpack(vim.api.nvim_win_get_cursor(0))
+        return "Ln " .. row .. ", Col " .. column + 1
+    end,
+    padding = { left = 1, right = 1 },
 }
 
 local progress = {
@@ -150,7 +154,7 @@ require'lualine'.setup {
     lualine_b = {mode},
     lualine_c = {},
     lualine_x = {diff, spaces, encoding, spell, filetype},
-    lualine_y = {location},
+    lualine_y = {"location"},
     lualine_z = {progress}
   },
 
