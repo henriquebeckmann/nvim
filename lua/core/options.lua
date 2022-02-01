@@ -1,106 +1,89 @@
 local set = vim.opt
-local cmd = vim.cmd
-local g = vim.g
 
-g.mapleader = " "
+set.number = true                           -- set numbered lines
+set.relativenumber = false                  -- set relative numbered lines
 
-set.termguicolors = true
-set.background = "dark"
-cmd("colorscheme darkplus")
+set.splitbelow = true                       -- force all horizontal splits to go below current window
+set.splitright = true                       -- force all vertical splits to go to the right of current window
 
-set.number = true
-set.relativenumber = true
-set.ruler = true
-set.ttyfast = true
+set.incsearch = true                        -- show where the pattern while typing a search command
+set.hlsearch = true                         -- highlight all matches on previous search pattern
+set.ignorecase = true                       -- ignore case in search patterns
+set.smartcase = true                        -- smart case
 
-set.tabstop = 4
-set.shiftwidth = 4
-set.expandtab = true
-set.autoindent = true
+set.tabstop = 4                             -- number of spaces that a <Tab> in the file counts for
+set.shiftwidth = 4                          -- number of spaces to use for each step of (auto)indent
+set.expandtab = true                        -- convert tabs to spaces
+set.smarttab = true                         -- convert tabs to spaces
 
-set.smarttab = true
-set.smartindent = true
-set.smartcase = true
+set.autoindent = true                       -- copy indent from current line when starting a new line
+set.smartindent = true                      -- do smart autoindenting when starting a new line
 
-set.mouse = "a"
+set.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
-set.hidden = true
-
-set.guicursor = { "n-v-sm:block", "i-c-ci-ve:ver25", "r-cr-o:hor20" }
-
-set.cursorline = true
-set.showmatch = true
-
-set.colorcolumn = "80"
-
-set.encoding = "utf-8"
-cmd("language en_US.utf8")
-
-set.spelllang = { "pt_br", "en_us" }
-
-cmd("tab sball")
-set.switchbuf = "useopen"
-set.laststatus = 2
-
-set.backspace = { "indent", "eol", "start" }
-
-set.completeopt= "menu,menuone,noselect,noinsert"
-
-set.clipboard = "unnamedplus"
-
-set.foldcolumn = "4"
-set.fillchars = "foldopen:,foldsep:⎹,foldclose:,fold: "
-set.foldmethod = "manual"
-set.foldlevel = 4
-
-set.exrc = true
-
-set.showcmd = true
-
-set.showmode = false
-
-set.wrap = true
-set.textwidth = 120
-
-set.list = false
-set.listchars = "eol:↲,tab:▸ ,trail:·"
-
-set.scrolloff = 1000
-
-set.matchpairs:append("<:>") -- Use % to jump between pairs
-
-set.incsearch = true
-set.hlsearch = true
-set.ignorecase = true
-
-set.inccommand = "split"
-
-set.splitbelow = true
-set.splitright = true
-
-set.pumheight = 10
-
-set.wildmenu = true
-set.wildmode = "full"
-
-set.wildignore = {
-	"*.ai", "*.bmp", "*.gif", "*.ico", "*.jpg", "*.jpeg", "*.png", "*.psd", "*.webp",
-	"*.aux", "*.out", "*.toc",
-	"*.avi", "*.divx", "*.mp4", "*.webm", "*.mov", "*.m2ts", "*.mkv", "*.vob", "*.mpg", "*.mpeg",
-	"*.doc", "*.pdf", "*.cbr", "*.cbz", "*.docx", "*.ppt", "*.odt",
-	"*.eot", "*.otf", "*.ttf", "*.woff",
-	"*.mp3", "*.oga", "*.ogg", "*.wav", "*.flac",
-	"*.o", "*.obj", "*.exe", "*.dll", "*.manifest", "*.rbc", "*.class", "*.jar", "*.iso",
-	"*.swp", ".lock", ".DS_Store", "._*",
-	"*.zip", "*.tar.gz", "*.tar.bz2", "*.rar", "*.tar.xz", "*.kgb",
-	".git", ".hg", ".svn",
+set.cursorline = true                       -- highlight the current line
+set.scrolloff = 999                         -- minimal number of screen lines to keep above and below the cursor
+set.guicursor = {                           -- configures the cursor style for each mode
+    "n-v-sm:block",
+    "i-c-ci-ve:ver25",
+    "r-cr-o:hor20"
 }
 
-set.shell = "/bin/zsh"
+set.mouse = "a"                             -- enables mouse support
 
-cmd [[ 
-    highlight Search guifg='#252525' guibg='#ff9632'
-    highlight IncSearch guifg='#FFff00' guibg='#252525'
-    highlight Visual guifg='None' guibg='#1e4173'
-    highlight FoldColumn guibg='None' guifg='#808080'
-]]
+set.colorcolumn = "80"                      -- highlighted column  number (default "")
+
+set.showmatch = true                        -- highlight pairs
+set.matchpairs:append("<:>")                 -- use % to jump between pairs
+
+set.list = false                            -- show listchars
+set.listchars = "eol:↲,tab:▸ ,trail:·"      -- strings to use in 'list' mode
+set.conceallevel = 0                        -- so that `` is visible in markdown files
+
+set.fileencoding = "utf-8"                  -- the encoding written to a file
+
+set.spell = false                           -- spell checking
+set.spelllang = {"pt_br", "en_us"}          -- spell check languages
+
+set.completeopt= {"menuone", "noselect"}    -- options for insert mode completion
+set.updatetime = 300                        -- faster completion (default 4000)
+set.pumheight = 10                          -- pop up menu height
+
+set.timeoutlen = 300                        -- time to wait for a mapped sequence to complete (in milliseconds)
+
+set.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+
+set.backspace = {"indent", "eol", "start"}  -- influences the working of <BS> and <Del> in insert mode
+
+set.signcolumn = "yes:1"                    -- show the sign column
+
+set.foldcolumn = "0"                        -- when and how to draw the foldcolumn
+set.fillchars = "foldopen:,foldsep:⎹,foldclose:,fold: " -- characters to fill the statuslines and vertical separators
+set.foldtext = "MyFoldText()"
+set.foldmethod = "manual"                   -- the kind of folding used for the current window
+set.foldlevel = 4                           -- folds with a higher level will be closed
+
+set.textwidth = 120                         -- maximum width of text that is being inserted
+
+set.wrap = true                             -- wrap line
+
+set.switchbuf = "useopen"                   -- behavior when switching between buffers
+
+set.undofile = true                         -- enable persistent undo
+
+set.laststatus = 2                          -- when the last window will have a status line (0: never, 1: only if there are at least two window, 2: always)
+
+set.wildmenu = true                         -- enables "enhanced mode" of command-line completion
+set.wildmode = "full"                       -- completation mode
+
+set.showcmd = true                          -- show command in the last line of the screen
+set.cmdheight = 1                           -- space in the neovim command line
+set.showmode = false                        -- if in insert, replace or visual mode put a message on the last line
+
+set.backup = false                          -- creates a backup file
+set.swapfile = false                        -- creates a swapfile
+set.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+
+set.shell = "/bin/zsh"                      -- set default neovim shell
+
+set.exrc = true
