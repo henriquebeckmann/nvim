@@ -19,6 +19,12 @@ local filename = {
     shorting_target = 40
 }
 
+local branch = {
+	"branch",
+	icons_enabled = true,
+	icon = "",
+}
+
 local modified = {
     function()
         if vim.bo.modified then
@@ -64,6 +70,14 @@ local filetype = {
     "filetype",
     icons_enabled = false,
     icons = nil,
+}
+
+local encoding = {
+    "encoding",
+    fmt = function(str)
+        return string.upper(str)
+    end,
+    padding = { left = 1, right = 1 },
 }
 
 local spaces = {
@@ -132,10 +146,10 @@ require'lualine'.setup {
   },
 
   sections = {
-    lualine_a = {"branch", diagnostics},
+    lualine_a = {branch, diagnostics},
     lualine_b = {mode},
     lualine_c = {},
-    lualine_x = {diff, spaces, "encoding", spell, filetype},
+    lualine_x = {diff, spaces, encoding, spell, filetype},
     lualine_y = {location},
     lualine_z = {progress}
   },
