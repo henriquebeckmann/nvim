@@ -11,6 +11,8 @@ set.hlsearch = true                         -- highlight all matches on previous
 set.ignorecase = true                       -- ignore case in search patterns
 set.smartcase = true                        -- smart case
 
+set.iskeyword:append("-")                 -- keyword are used in searching and recognizing with many commands
+
 set.tabstop = 4                             -- number of spaces that a <Tab> in the file counts for
 set.shiftwidth = 4                          -- number of spaces to use for each step of (auto)indent
 set.expandtab = true                        -- convert tabs to spaces
@@ -18,6 +20,8 @@ set.smarttab = true                         -- convert tabs to spaces
 
 set.autoindent = true                       -- copy indent from current line when starting a new line
 set.smartindent = true                      -- do smart autoindenting when starting a new line
+
+set.formatoptions:remove("cro")             -- how automatic formatting is to be done
 
 set.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
@@ -66,6 +70,8 @@ set.foldlevel = 4                           -- folds with a higher level will be
 set.textwidth = 120                         -- maximum width of text that is being inserted
 
 set.wrap = true                             -- wrap line
+
+set.whichwrap:append("h,l")                 -- allow specified keys to move to the previous/next line
 
 set.switchbuf = "useopen"                   -- behavior when switching between buffers
 
