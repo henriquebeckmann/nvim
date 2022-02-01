@@ -61,6 +61,7 @@ bufferline.setup {
                 text = "File Explorer",
                 highlight = "Directory",
                 text_align = "center",
+                padding = 1,
             }
         },
 
