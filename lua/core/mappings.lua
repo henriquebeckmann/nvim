@@ -1,49 +1,51 @@
+local map = vim.api.nvim_set_keymap
+
+local opts = {noremap = true, silent = true}
+
+-- remap space as leader key
+map("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+map("n", "<C-t>", ":enew<CR>", opts)
+map("n", "<A-n>", "*<cmd>nohlsearch<CR>", opts)
+map("n", "<A-p>", "#<cmd>nohlsearch<CR>", opts)
+map("n", "<Esc>", ":nohlsearch<CR>", opts)
+
+map("n", "Y", "yg$", opts)
+
+map("n", "<C-h>",  "<C-w>h", opts)
+map("n", "<C-j>",  "<C-w>j", opts)
+map("n", "<C-k>",  "<C-w>k", opts)
+map("n", "<C-l>",  "<C-w>l", opts)
+
+map("n", "<C-w>f", "<cmd>lua _ZEN_MODE()<CR>", opts)
+map("n", "<C-w>h", ":hide<CR>", opts)
+map("n", "<C-w>x", ":bd!<CR>", opts)
+
+map("n", "<A-h>",  ":vertical resize -2<CR>", opts)
+map("n", "<A-j>",  ":resize +2<CR>", opts)
+map("n", "<A-k>",  ":resize -2<CR>", opts)
+map("n", "<A-l>",  ":vertical resize +2<CR>", opts)
+
+map("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
+map("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
+map("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
+map("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
+map("t", "<Esc>", "<C-\\><C-n>", opts)
+
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
+
+map("x", "K", ":move '<-2<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
+
 local utils = require "core.utils"
 local hooks = require "core.hooks"
 
 local map = utils.map
 
 local M =  {}
-
-M.misc = function()
-      map { "n", "<C-t>", ":enew<CR>" }
-      map { "n", "<C-f>", "/" }
-      map { "n", "<C-s>", ":%s/" }
-      map { "v", "<C-s>", ":s/" }
-      map { "n", "<A-n>", "*<cmd>nohlsearch<CR>" }
-      map { "n", "<A-p>", "#<cmd>nohlsearch<CR>" }
-      map { "n", "<Esc>", ":nohlsearch<CR>" }
-
-      map { "n", "Y", "yg$" }
-
-      map { "n", "<C-h>",  "<C-w>h" }
-      map { "n", "<C-j>",  "<C-w>j" }
-      map { "n", "<C-k>",  "<C-w>k" }
-      map { "n", "<C-l>",  "<C-w>l" }
-
-      map { "n", "<C-w>f", "<cmd>lua _ZEN_MODE()<CR>" }
-      map { "n", "<C-w>h", ":hide<CR>" }
-      map { "n", "<C-w>x", ":bd!<CR>" }
-
-      map { "n", "<A-h>",  ":vertical resize -2<CR>" }
-      map { "n", "<A-j>",  ":resize +2<CR>" }
-      map { "n", "<A-k>",  ":resize -2<CR>" }
-      map { "n", "<A-l>",  ":vertical resize +2<CR>" }
-
-      map { "t", "<C-h>", "<C-\\><C-N><C-w>h" }
-      map { "t", "<C-j>", "<C-\\><C-N><C-w>j" }
-      map { "t", "<C-k>", "<C-\\><C-N><C-w>k" }
-      map { "t", "<C-l>", "<C-\\><C-N><C-w>l" }
-      map { "t", "<Esc>", "<C-\\><C-n>" }
-
-      map { "v", "<", "<gv" }
-      map { "v", ">", ">gv" }
-
-      map { "x", "K", ":move '<-2<CR>gv-gv" }
-      map { "x", "J", ":move '>+1<CR>gv-gv" }
-end
-
-hooks.run("setup_mappings", M.misc())
 
 M.nvimtree = function()
     map { "n", "<leader>e", ":NvimTreeToggle<CR>" }

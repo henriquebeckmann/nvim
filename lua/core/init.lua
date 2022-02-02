@@ -1,9 +1,5 @@
 local set = vim.opt
 local cmd = vim.cmd
-local g = vim.g
-
-
-g.mapleader = " "
 
 set.termguicolors = true
 set.background = "dark"
