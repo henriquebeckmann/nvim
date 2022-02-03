@@ -1,10 +1,9 @@
-local present, nvimtree = pcall(require, "nvim-tree")
+local status_ok, nvimtree = pcall(require, "nvim-tree")
 
-if not present then
+if not status_ok then
    return
 end
 
-require("core.mappings").nvimtree()
 vim.cmd("highlight NvimTreeOpenedFolderName gui=NONE")
 
 local g = vim.g

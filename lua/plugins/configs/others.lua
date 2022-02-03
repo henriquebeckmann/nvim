@@ -61,10 +61,15 @@ end
 M.comment = function()
     local present, nvim_comment = pcall(require, "Comment")
     if present then
+        local map = vim.api.nvim_set_keymap
+
+        local opts = {noremap = true, silent = true}
+
+        map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+        map("v", "<leader>/", "<Esc><cmd>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
         nvim_comment.setup()
 
         vim.cmd("highlight Comment gui=NONE")
-        require("core.mappings").comment()
     end
 end
 
@@ -123,6 +128,12 @@ end
 M.zen_mode = function()
     local status_ok, zen_mode = pcall(require, "zen-mode")
     if status_ok then
+        vim.api.nvim_set_keymap(
+        "n",
+        "<C-w>f",
+        "<cmd>lua _ZEN_MODE()<CR>", 
+        {noremap = true, silent = true})
+
         zen_mode.setup {}
         require("plugins.utils").zen_mode()
     end

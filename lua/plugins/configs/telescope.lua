@@ -2,7 +2,13 @@ if not pcall(require, "telescope") then
     return
 end
 
-require('core.mappings').telescope()
+vim.api.nvim_set_keymap(
+    "n",
+    "<C-p>",
+    ":lua require('telescope.builtin').find_files()<CR>",
+    {noremap = true, silent= true}
+)
+
 local actions = require('telescope.actions')
 
 require('telescope').setup {

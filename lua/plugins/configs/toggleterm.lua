@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 require("plugins.utils").toggleterm()
-require("core.mappings").toggleterm()
 
 require("toggleterm").setup{
   size = 10,
