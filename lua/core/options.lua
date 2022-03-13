@@ -46,7 +46,7 @@ set.conceallevel = 0                        -- so that `` is visible in markdown
 
 set.fileencoding = "utf-8"                  -- the encoding written to a file
 
-set.spell = false                           -- spell checking
+set.spell = true                           -- spell checking
 set.spelllang = {"pt_br", "en_us"}          -- spell check languages
 
 set.completeopt= {"menuone", "noselect"}    -- options for insert mode completion
