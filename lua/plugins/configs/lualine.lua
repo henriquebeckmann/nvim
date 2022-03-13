@@ -68,7 +68,7 @@ local fileformat = {
 
 local filetype = {
     "filetype",
-    icons_enabled = false,
+    icons_enabled = true,
     icons = nil,
 }
 
@@ -93,7 +93,7 @@ local spell = {
         end
         return ""
     end,
-    icon = "✓",
+    icon = "",
 }
 
 local lsp_clients = {
@@ -153,7 +153,7 @@ require'lualine'.setup {
     lualine_a = {branch, diagnostics},
     lualine_b = {mode},
     lualine_c = {},
-    lualine_x = {diff, spaces, encoding, spell, filetype},
+    lualine_x = {diff, lsp_clients, spaces, encoding, spell, filetype},
     lualine_y = {"location"},
     lualine_z = {progress}
   },
