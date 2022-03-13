@@ -41,6 +41,11 @@ map("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 
+map("i", "<A-h>", "<Left>", opts)
+map("i", "<A-j>", "<Down>", opts)
+map("i", "<A-k>", "<Up>", opts)
+map("i", "<A-l>", "<Right>", opts)
+
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
