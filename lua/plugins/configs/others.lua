@@ -90,7 +90,7 @@ M.gitsigns = function()
             linehl     = false,
             word_diff  = false,
 
-            current_line_blame = false,
+            current_line_blame = true,
 
             current_line_blame_opts = {
                 virt_text = true,
