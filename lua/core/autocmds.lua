@@ -13,6 +13,7 @@ vim.cmd [[
     augroup _terminal
     autocmd TermOpen term://* setlocal nohlsearch
     autocmd TermOpen term://* setlocal foldcolumn=0
+    autocmd TermOpen term://* setlocal nospell
     augroup end
 
     autocmd FileType Outline setlocal foldcolumn=0
