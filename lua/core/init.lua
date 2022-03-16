@@ -27,3 +27,12 @@ cmd [[
     return ' '. lnum . ' lines: ' . line_text
     endfunction
 ]]
+
+cmd [[
+    augroup MyVisualListchars
+    autocmd!
+
+    autocmd CursorMoved * if mode() =~# "[vV\<C-v>]" | set list | else | set nolist | endif
+
+    augroup END
+]]
