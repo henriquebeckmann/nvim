@@ -21,6 +21,7 @@ map("n", "<A-p>", "#<cmd>nohlsearch<CR>", opts)
 map("n", "<Esc>", ":nohlsearch<CR>", opts)
 
 map("n", "Y", "yg$", opts)
+map("v", "p", '"_dP', opts)
 
 map("n", "<C-h>",  "<C-w>h", opts)
 map("n", "<C-j>",  "<C-w>j", opts)
@@ -49,9 +50,30 @@ map("i", "<A-h>", "<Left>", opts)
 map("i", "<A-j>", "<Down>", opts)
 map("i", "<A-k>", "<Up>", opts)
 map("i", "<A-l>", "<Right>", opts)
+map("i", "<C-c>", "<Esc>", opts)
 
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 map("x", "K", ":move '<-2<CR>gv-gv", opts)
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
+
+local delete_keys = {
+    { lhs = "c", rhs = '"_c', modes = { "n", "x" } },
+    { lhs = "cc", rhs = '"_S', modes = { "n" } },
+    { lhs = "C", rhs = '"_C', modes = { "n", "x" } },
+    { lhs = "s", rhs = '"_s', modes = { "n", "x" } },
+    { lhs = "S", rhs = '"_S', modes = { "n", "x" } },
+    { lhs = "d", rhs = '"_d', modes = { "n", "x" } },
+    { lhs = "dd", rhs = '"_dd', modes = { "n" } },
+    { lhs = "D", rhs = '"_D', modes = { "n", "x" } },
+    { lhs = "x", rhs = '"_x', modes = { "n", "x" } },
+    { lhs = "X", rhs = '"_X', modes = { "n", "x" } },
+    { lhs = "<Del>", rhs = '"_x', modes = { "n", "x" } },
+  }
+
+for _, key in ipairs(delete_keys) do
+  for _, mode in ipairs(key.modes) do
+      map(mode, key.lhs, key.rhs, opts)
+  end
+end
