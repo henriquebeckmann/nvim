@@ -27,6 +27,11 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
   virtual_text = {
     prefix = "", -- Could be '■', '●', '▎', 'x'
   }

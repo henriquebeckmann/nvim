@@ -1,7 +1,7 @@
 local set = vim.opt
 
 set.number = true                           -- set numbered lines
-set.relativenumber = false                  -- set relative numbered lines
+set.relativenumber = true                   -- set relative numbered lines
 
 set.splitbelow = true                       -- force all horizontal splits to go below current window
 set.splitright = true                       -- force all vertical splits to go to the right of current window
@@ -13,8 +13,8 @@ set.smartcase = true                        -- smart case
 
 set.iskeyword:append("-")                 -- keyword are used in searching and recognizing with many commands
 
-set.tabstop = 4                             -- number of spaces that a <Tab> in the file counts for
-set.shiftwidth = 4                          -- number of spaces to use for each step of (auto)indent
+set.tabstop = 2                             -- number of spaces that a <Tab> in the file counts for
+set.shiftwidth = 2                         -- number of spaces to use for each step of (auto)indent
 set.expandtab = true                        -- convert tabs to spaces
 set.smarttab = true                         -- convert tabs to spaces
 
@@ -35,13 +35,13 @@ set.guicursor = {                           -- configures the cursor style for e
 
 set.mouse = "a"                             -- enables mouse support
 
-set.colorcolumn = "80"                      -- highlighted column  number (default "")
+set.colorcolumn = "100"                      -- highlighted column  number (default "")
 
 set.showmatch = true                        -- highlight pairs
 set.matchpairs:append("<:>")                 -- use % to jump between pairs
 
 set.list = false                            -- show listchars
-set.listchars = "eol:↲,tab:▸ ,trail:·"      -- strings to use in 'list' mode
+set.listchars = "eol:↲,tab:▸ ,space:·"      -- strings to use in 'list' mode
 set.conceallevel = 0                        -- so that `` is visible in markdown files
 
 set.fileencoding = "utf-8"                  -- the encoding written to a file
@@ -71,13 +71,13 @@ set.textwidth = 120                         -- maximum width of text that is bei
 
 set.wrap = true                             -- wrap line
 
-set.whichwrap:append("h,l")                 -- allow specified keys to move to the previous/next line
+-- set.whichwrap:append("h,l")                 -- allow specified keys to move to the previous/next line
 
 set.switchbuf = "useopen"                   -- behavior when switching between buffers
 
-set.undofile = true                         -- enable persistent undo
+set.undofile = false                         -- enable persistent undo
 
-set.laststatus = 2                          -- when the last window will have a status line (0: never, 1: only if there are at least two window, 2: always)
+set.laststatus = 3                          -- when the last window will have a status line (0: never, 1: only if there are at least two window, 2: always)
 
 set.wildmenu = true                         -- enables "enhanced mode" of command-line completion
 set.wildmode = "full"                       -- completation mode

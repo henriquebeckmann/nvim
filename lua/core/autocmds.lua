@@ -4,6 +4,7 @@ vim.cmd [[
     autocmd FileType help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
+    autocmd BufWinLeave * call clearmatches()
     augroup end
 
     augroup _spells

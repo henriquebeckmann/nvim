@@ -24,6 +24,7 @@ cmd [[
     let line = getline(v:foldstart)
     let lnum = v:foldend - v:foldstart + 1
     let line_text = substitute(line, '^"{\+', '', 'g')
+    -- return line_text
     return ' '. lnum . ' lines: ' . line_text
     endfunction
 ]]

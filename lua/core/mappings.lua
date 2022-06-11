@@ -22,6 +22,7 @@ map("n", "<Esc>", ":nohlsearch<CR>", opts)
 
 map("n", "Y", "yg$", opts)
 map("v", "p", '"_dP', opts)
+map("x", "y", 'ygv', opts)
 
 map("n", "<C-h>",  "<C-w>h", opts)
 map("n", "<C-j>",  "<C-w>j", opts)
@@ -67,7 +68,7 @@ local delete_keys = {
     { lhs = "d", rhs = '"_d', modes = { "n", "x" } },
     { lhs = "dd", rhs = '"_dd', modes = { "n" } },
     { lhs = "D", rhs = '"_D', modes = { "n", "x" } },
-    { lhs = "x", rhs = '"_x', modes = { "n", "x" } },
+    { lhs = "x", rhs = '"_x', modes = { "n" } },
     { lhs = "X", rhs = '"_X', modes = { "n", "x" } },
     { lhs = "<Del>", rhs = '"_x', modes = { "n", "x" } },
   }

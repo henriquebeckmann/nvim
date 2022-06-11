@@ -59,9 +59,9 @@ local fileformat = {
         -- unix = ' ',
         -- dos = ' ',
         -- mac = ' ',
-        unix = 'UNIX',
-        dos = 'DOS',
-        mac = 'MAC',
+        unix = 'LF',
+        dos = 'CRLF',
+        mac = 'LF',
     },
     -- padding = { left = 0, right = 1 },
 }
@@ -150,10 +150,10 @@ require'lualine'.setup {
   },
 
   sections = {
-    lualine_a = {branch, diagnostics},
+    lualine_a = {branch, diagnostics, lsp_clients},
     lualine_b = {mode},
     lualine_c = {},
-    lualine_x = {diff, lsp_clients, spaces, encoding, spell, filetype},
+    lualine_x = {diff, spaces, encoding, fileformat, filetype},
     lualine_y = {"location"},
     lualine_z = {progress}
   },

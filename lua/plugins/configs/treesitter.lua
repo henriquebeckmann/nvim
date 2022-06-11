@@ -1,39 +1,49 @@
-local present, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then
-   return
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+	return
 end
 
-treesitter.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-    ignore_install = { "" }, -- List of parsers to ignore installing
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = { "" }, -- list of language that will be disabled
-        additional_vim_regex_highlighting = true,
-    },
-   matchup = {
-       enable = true,
-   },
-   rainbow = {
-       enable = true,
-       extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-       max_file_lines = nil, -- Do not enable for files with more than n lines, int
-       colors = {
-           "Gold",
-           "Orchid",
-           "DodgerBlue",
-           -- "Cornsilk",
-           -- "Salmon",
-           -- "LawnGreen",
-       }, -- table of hex strings
-       -- termcolors = {} -- table of colour name strings
-       disable = { "html" },
-   },
-   autotag = {
-       enable = true,
-   },
-}
+local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.motoko = "typescript"
+
+configs.setup({
+	ensure_installed = "all", -- one of "all" or a list of languages
+	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+	ignore_install = { "" }, -- List of parsers to ignore installing
+	highlight = {
+    -- use_languagetree = true,
+		enable = true, -- false will disable the whole extension
+		-- disable = { "css", "html" }, -- list of language that will be disabled
+		disable = { "css", "markdown" }, -- list of language that will be disabled
+		additional_vim_regex_highlighting = true,
+	},
+	autopairs = {
+		enable = true,
+	},
+	indent = { enable = true, disable = { "python", "css" } },
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
+	autotag = {
+		enable = true,
+		disable = { "xml" },
+	},
+	rainbow = {
+		enable = true,
+		colors = {
+			"Gold",
+			"Orchid",
+			"DodgerBlue",
+			-- "Cornsilk",
+			-- "Salmon",
+			-- "LawnGreen",
+		},
+		disable = { "html" },
+	},
+	playground = {
+		enable = true,
+	},
+})
 
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
