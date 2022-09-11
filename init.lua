@@ -3,6 +3,7 @@ local modules = {
     "core.options",
     "core.autocmds",
     "core.mappings",
+    "core.winbar",
 }
 
 for _, module in ipairs(modules) do

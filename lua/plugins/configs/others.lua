@@ -65,8 +65,8 @@ M.comment = function()
 
         local opts = {noremap = true, silent = true}
 
-        map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-        map("v", "<leader>/", "<Esc><cmd>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
+        map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current(nil)<CR>", opts)
+        map("v", "<leader>/", "<Esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
         nvim_comment.setup()
 
         vim.cmd("highlight Comment gui=NONE")

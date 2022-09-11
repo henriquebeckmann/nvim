@@ -66,6 +66,18 @@ return packer.startup(function()
     }
 
     use {
+      "SmiteshP/nvim-gps",
+      requires = "nvim-treesitter/nvim-treesitter",
+      config = "require('plugins.configs.gps')",
+    }
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig",
+    config = "require('plugins.configs.navic')",
+  }
+
+    use {
         "windwp/nvim-ts-autotag"
     }
 

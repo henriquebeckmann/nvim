@@ -139,6 +139,8 @@ local progress = {
     cond = nil,
 }
 
+local navic = require("nvim-navic")
+
 require'lualine'.setup {
   options = {
     icons_enabled = true,
@@ -152,7 +154,7 @@ require'lualine'.setup {
   sections = {
     lualine_a = {branch, diagnostics, lsp_clients},
     lualine_b = {mode},
-    lualine_c = {},
+    lualine_c = {{ navic.get_location, cond = navic.is_available },},
     lualine_x = {diff, spaces, encoding, fileformat, filetype},
     lualine_y = {"location"},
     lualine_z = {progress}

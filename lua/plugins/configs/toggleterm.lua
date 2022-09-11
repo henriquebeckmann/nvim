@@ -7,7 +7,7 @@ require("plugins.utils").toggleterm()
 
 require("toggleterm").setup{
   size = 10,
-  open_mapping = [[<c-_>]],
+  open_mapping = [[<c-/>]],
   hide_numbers = true,
   shade_filetypes = {},
   shade_terminals = true,
